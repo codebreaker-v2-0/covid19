@@ -1,0 +1,12 @@
+:root {
+  --navbar-background: #1e1e30;
+  --primary-color: #f8fafc;
+  --accent-color: #3b82f6;
+  --background-color: #161625;
+  --background-light: #2f2f43;
+  --text-light: #94a3b8;
+  --confirmed-color: #ff073a;
+  --active-color: #007bff;
+  --recovered-color: #28a745;
+  --deceased-color: #6c757d;
+}

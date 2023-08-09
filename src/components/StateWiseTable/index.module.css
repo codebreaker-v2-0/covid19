@@ -1,0 +1,61 @@
+@import "../../constants/css-colors.css";
+
+.stateWiseTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.stateWiseTable table {
+  background-color: var(--background-light);
+  color: var(--primary-color);
+  border: 1px solid #475569;
+  border-spacing: 0;
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
+.stateWiseTable th {
+  padding: 0.75rem;
+  position: relative;
+}
+
+.stateWiseTable th:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid #475569;
+}
+
+.stateWiseTable td {
+  padding: 0.5rem;
+  text-align: right;
+  font-size: 14px;
+}
+
+.stateWiseTable th:first-child,
+.stateWiseTable td:first-child {
+  text-align: left;
+  min-width: 150px;
+}
+
+.confirmed {
+  color: var(--confirmed-color);
+}
+
+.active {
+  color: var(--active-color);
+}
+
+.recovered {
+  color: var(--recovered-color);
+}
+
+.deceased {
+  color: var(--deceased-color);
+}
+
+.population {
+  color: var(--text-light);
+}

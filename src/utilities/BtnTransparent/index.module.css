@@ -1,0 +1,11 @@
+.btnTransparent {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnTransparent:active {
+  scale: 0.95;
+}

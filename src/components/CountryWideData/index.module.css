@@ -1,0 +1,43 @@
+@import "../../constants/css-colors.css";
+
+.countryWideData {
+  width: 70vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.countryWideData li {
+  text-align: center;
+}
+
+.name {
+  font-size: 1.1rem;
+}
+
+.icon {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.confirmed {
+  color: var(--confirmed-color);
+}
+
+.active {
+  color: var(--active-color);
+}
+
+.recovered {
+  color: var(--recovered-color);
+}
+
+.deceased {
+  color: var(--deceased-color);
+}

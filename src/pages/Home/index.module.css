@@ -1,0 +1,13 @@
+@import "../../constants/css-colors.css";
+
+.home {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.home .content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
