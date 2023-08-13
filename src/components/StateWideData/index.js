@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 
-const CountryWideData = ({ data }) => {
+const StateWideData = ({ data, currentCategory, setCurrentCategory }) => {
   const { confirmed, active, recovered, deceased } = data;
 
   const [triggerType, setTriggerType] = useState("loop");
@@ -13,8 +13,15 @@ const CountryWideData = ({ data }) => {
   }, []);
 
   return (
-    <ul className={styles.countryWideData}>
-      <li className={styles.confirmed}>
+    <div className={styles.stateWideData}>
+      <button
+        className={`${styles.confirmed} ${
+          currentCategory === "confirmed" && styles.current
+        }`}
+        onClick={() => {
+          setCurrentCategory("confirmed");
+        }}
+      >
         <p className={styles.name}>Confirmed</p>
         <lord-icon
           className={styles.icon}
@@ -24,9 +31,16 @@ const CountryWideData = ({ data }) => {
           style={{ width: "100px", height: "100px", margin: "-10px" }}
         ></lord-icon>
         <p className={styles.value}>{confirmed.toLocaleString("en-IN")}</p>
-      </li>
+      </button>
 
-      <li className={styles.active}>
+      <button
+        className={`${styles.active} ${
+          currentCategory === "active" && styles.current
+        }`}
+        onClick={() => {
+          setCurrentCategory("active");
+        }}
+      >
         <p className={styles.name}>Active</p>
         <lord-icon
           src="https://cdn.lordicon.com/qcargsbo.json"
@@ -35,9 +49,16 @@ const CountryWideData = ({ data }) => {
           style={{ width: "100px", height: "100px", margin: "-10px" }}
         ></lord-icon>
         <p className={styles.value}>{active.toLocaleString("en-IN")}</p>
-      </li>
+      </button>
 
-      <li className={styles.recovered}>
+      <button
+        className={`${styles.recovered} ${
+          currentCategory === "recovered" && styles.current
+        }`}
+        onClick={() => {
+          setCurrentCategory("recovered");
+        }}
+      >
         <p className={styles.name}>Recovered</p>
         <lord-icon
           className={styles.icon}
@@ -47,9 +68,16 @@ const CountryWideData = ({ data }) => {
           style={{ width: "100px", height: "100px", margin: "-10px" }}
         ></lord-icon>
         <p className={styles.value}>{recovered.toLocaleString("en-IN")}</p>
-      </li>
+      </button>
 
-      <li className={styles.deceased}>
+      <button
+        className={`${styles.deceased} ${
+          currentCategory === "deceased" && styles.current
+        }`}
+        onClick={() => {
+          setCurrentCategory("deceased");
+        }}
+      >
         <p className={styles.name}>Deceased</p>
         <lord-icon
           src="https://cdn.lordicon.com/javbdkyp.json"
@@ -58,9 +86,9 @@ const CountryWideData = ({ data }) => {
           style={{ width: "100px", height: "100px", margin: "-10px" }}
         ></lord-icon>
         <p className={styles.value}>{deceased.toLocaleString("en-IN")}</p>
-      </li>
-    </ul>
+      </button>
+    </div>
   );
 };
 
-export default CountryWideData;
+export default StateWideData;

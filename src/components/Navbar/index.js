@@ -4,6 +4,7 @@ import { IoCloseCircle } from "react-icons/io5";
 
 import styles from "./index.module.css";
 import BtnTransparent from "../../utilities/BtnTransparent";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   // State: Show Menu
@@ -16,9 +17,31 @@ const Navbar = () => {
   const renderMobileMenu = () => (
     <div className={styles.menuRow}>
       {/* Nav Links */}
-      <ul>
-        <li>Home</li>
-        <li>About</li>
+      <ul onClick={toggleShowMenu}>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? styles.active : undefined)}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/vaccination"
+            className={({ isActive }) => (isActive ? styles.active : undefined)}
+          >
+            Vaccination
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? styles.active : undefined)}
+          >
+            About
+          </NavLink>
+        </li>
       </ul>
 
       {/* Close Button */}

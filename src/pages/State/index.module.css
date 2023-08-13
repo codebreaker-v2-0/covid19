@@ -1,0 +1,103 @@
+@import "../../constants/css-colors.css";
+
+.state {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.state p {
+  margin: 0.5rem 0;
+}
+
+.stateDetails {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-light);
+}
+
+.stateDetails h3 {
+  color: #0ea5e9;
+  background-color: #0284c729;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.5rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.stateDetails div:last-child {
+  text-align: right;
+}
+
+.value {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.ncpReport h3 {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.ncpReport > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.ncpReport p:last-child {
+  font-size: 20px;
+}
+
+.topDistricts {
+  color: #fff;
+}
+
+.topDistricts h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.confirmed {
+  color: var(--confirmed-color);
+}
+
+.active {
+  color: var(--active-color);
+}
+
+.recovered {
+  color: var(--recovered-color);
+}
+
+.deceased {
+  color: var(--deceased-color);
+}
+
+.topDistricts ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.topDistricts li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topDistricts span:first-child {
+  flex-basis: 80px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  font-size: 1.25rem;
+  text-align: right;
+}
+
+.topDistricts span:last-child {
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}

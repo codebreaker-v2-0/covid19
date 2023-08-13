@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
-import Navbar from "../../components/Navbar";
 import InputSearch from "../../utilities/InputSearch";
-import Loader from "../../utilities/Loader";
 
 import styles from "./index.module.css";
 import apiStatusConstants from "../../constants/api-status-constants";
 import statesList from "../../constants/states-list";
 import StateWiseTable from "../../components/StateWiseTable";
 import CountryWideData from "../../components/CountryWideData";
+import Footer from "../../components/Footer";
+import renderContent from "../../utilities/render-content";
 
 let statesData = [];
 let countryData = {};
@@ -35,7 +35,7 @@ const Home = () => {
       const fetchedData = await response.json();
 
       statesData = statesList.map((item) => {
-        const { state_code: stateCode, state_name: stateName } = item;
+        const { stateCode, stateName } = item;
         const { population } = fetchedData[stateCode].meta;
         const { confirmed, recovered, deceased } = fetchedData[stateCode].total;
         return {
@@ -84,31 +84,20 @@ const Home = () => {
         {/* Input: Search */}
         <InputSearch value={searchInput} onChange={updateSearchInput} />
 
-        <CountryWideData data={countryData} />
-
-        <StateWiseTable data={statesData} />
+        {!searchInput && (
+          <>
+            <CountryWideData data={countryData} />
+            <StateWiseTable data={statesData} />
+            <Footer />
+          </>
+        )}
       </>
     );
   };
 
-  // Function: Render Content
-  const renderContent = () => {
-    switch (apiStatus) {
-      case apiStatusConstants.progress:
-        return <Loader />;
-      case apiStatusConstants.failure:
-        return <h1>Failure</h1>;
-      default:
-        return renderSuccessView();
-    }
-  };
-
   return (
     <div className={styles.home}>
-      {/* Navbar */}
-      <Navbar />
-
-      <div className={styles.content}>{renderContent()}</div>
+      {renderContent(apiStatus, renderSuccessView)}
     </div>
   );
 };
